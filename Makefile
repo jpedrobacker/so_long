@@ -5,6 +5,8 @@ MLX_FLAGS = -Lmlx -lmlx -L/usr/lib/X11 -lXext -lX11
 MLXDIR = ./mlx
 MLX_LIB = $(MLXDIR)/libmlx_$(UNAME).a
 
+run:
+	$(CC) so_long.c $(MLX_FLAGS)
 
 .c.o:
 	$(CC) $(CFLAGS) -c -o $@ $< $(INCLUDES)
