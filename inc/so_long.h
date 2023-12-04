@@ -13,12 +13,25 @@
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "../mlx/mlx.h"
+# include <mlx.h>
 # include "../libft/libft.h"
 # include <stdlib.h>
+# include <X11/keysym.h>
+# include <stdio.h>
+# include <fcntl.h>
+# include <unistd.h>
 
+
+# define MLX_ERROR		0
 # define MALLOC_ERROR	1
 # define WIDTH			400
 # define HEIGHT			400
+
+typedef struct s_mlx_data
+{
+	void	*mlx_ptr;
+	void	*win_ptr;
+	int		color;
+}	t_mlx_data;
 
 #endif
