@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 21:27:48 by jbergfel          #+#    #+#             */
-/*   Updated: 2023/12/01 22:10:12 by jbergfel         ###   ########.fr       */
+/*   Updated: 2023/12/04 16:05:40 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,23 @@
 # define MALLOC_ERROR	1
 # define WIDTH			400
 # define HEIGHT			400
+# define SIDE_LEN		800
 
-typedef struct s_mlx_data
+typedef struct s_img
+{
+	void	*img_ptr;
+	char	*img_pixels_ptr;
+	int		bits_per_pixel;
+	int		endian;
+	int		line_len;
+}	t_img;
+
+typedef struct s_var
 {
 	void	*mlx_ptr;
 	void	*win_ptr;
-	int		color;
-}	t_mlx_data;
+	t_img	img;
+}	t_var;
 
+typedef unsigned char	byte;
 #endif
