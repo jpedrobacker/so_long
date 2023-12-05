@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 21:27:48 by jbergfel          #+#    #+#             */
-/*   Updated: 2023/12/04 16:05:40 by jbergfel         ###   ########.fr       */
+/*   Updated: 2023/12/04 19:16:24 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,7 @@ typedef struct s_var
 }	t_var;
 
 typedef unsigned char	byte;
+
+void	init_game(void);
+void	*spawn_player(void *ptr);
 #endif

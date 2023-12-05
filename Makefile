@@ -6,8 +6,7 @@ MLXDIR = ./minilibx-linux
 MLX_LIB = $(MLXDIR)/libmlx_$(UNAME).a
 
 run:
-	$(CC) so_long.c $(MLX_FLAGS)
-
+	cd src && $(CC) game.c so_long.c player.c $(MLX_FLAGS) && ./a.out
 .c.o:
 	$(CC) $(CFLAGS) -c -o $@ $< $(INCLUDES)
 
