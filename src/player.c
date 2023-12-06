@@ -6,10 +6,9 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 16:26:15 by jbergfel          #+#    #+#             */
-/*   Updated: 2023/12/05 10:48:24 by jbergfel         ###   ########.fr       */
+/*   Updated: 2023/12/06 12:18:48 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "../inc/so_long.h"
 
@@ -33,6 +32,7 @@ int	player_events(int keycode, t_data *data)
 		mlx_destroy_display(data->mlx_ptr);
 		free(data->mlx_ptr);
 		exit(1);
+		return (0);
 	}
 	if (keycode == XK_a)
 	{

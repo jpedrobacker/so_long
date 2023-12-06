@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 21:27:48 by jbergfel          #+#    #+#             */
-/*   Updated: 2023/12/05 13:54:15 by jbergfel         ###   ########.fr       */
+/*   Updated: 2023/12/06 12:24:03 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,27 +45,31 @@ typedef struct s_mov
 
 typedef struct s_layout
 {
-	int	row;
-	int	col;
-	int	exit;
-	int	coin;
-	int	player;
+	char	**maps;
+	int		row;
+	int		col;
+	int		exit;
+	int		coin;
+	int		player;
+	int		fd;
+	void	*mlx_ptr;
+	void	*win_ptr;
+	void	*floor;
+	void	*wall;
 }	t_layout;
 
 typedef struct s_data
 {
 	void	*mlx_ptr;
 	void	*win_ptr;
-	t_img	img;
-	t_mov	pos;
 }	t_data;
 
 
-
-void	init_game(void);
-void	*spawn_player(void *ptr);
-int		player_events(int keycode, t_data *data);
+void		init_game(void);
+void		*spawn_player(void *ptr);
+int			player_events(int keycode, t_data *data);
 t_layout	new_layout(void);
-char	**print_map(char *path);
-
+int			read_map(t_layout *map, char **arr);
+void		graphics(t_layout *data);
+void		adding_graphics(t_layout *data);
 #endif
