@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 21:27:48 by jbergfel          #+#    #+#             */
-/*   Updated: 2023/12/04 19:16:24 by jbergfel         ###   ########.fr       */
+/*   Updated: 2023/12/05 13:54:15 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@
 
 # define MLX_ERROR		0
 # define MALLOC_ERROR	1
-# define WIDTH			400
-# define HEIGHT			400
+# define WIDTH			600
+# define HEIGHT			600
 # define SIDE_LEN		800
 
 typedef struct s_img
@@ -37,15 +37,35 @@ typedef struct s_img
 	int		line_len;
 }	t_img;
 
-typedef struct s_var
+typedef struct s_mov
+{
+	int	x;
+	int	y;
+}	t_mov;
+
+typedef struct s_layout
+{
+	int	row;
+	int	col;
+	int	exit;
+	int	coin;
+	int	player;
+}	t_layout;
+
+typedef struct s_data
 {
 	void	*mlx_ptr;
 	void	*win_ptr;
 	t_img	img;
-}	t_var;
+	t_mov	pos;
+}	t_data;
 
-typedef unsigned char	byte;
+
 
 void	init_game(void);
 void	*spawn_player(void *ptr);
+int		player_events(int keycode, t_data *data);
+t_layout	new_layout(void);
+char	**print_map(char *path);
+
 #endif

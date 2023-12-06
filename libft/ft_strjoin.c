@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbergfel <jbergfel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 10:38:59 by jbergfel          #+#    #+#             */
-/*   Updated: 2023/10/20 13:25:01 by jbergfel         ###   ########.fr       */
+/*   Updated: 2023/12/05 11:03:32 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,11 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	i = 0;
 	lens1 = ft_strlen(s1);
 	lens2 = ft_strlen(s2);
+	if (!s1)
+		return (ft_strdup(""));
+	if (!s1 && !s2)
+		return (NULL);
 	str = (char *)malloc(lens1 + lens2 + 1);
-	if (s1 == 0 && s2 == 0)
-		return (0);
 	if (!str)
 		return (0);
 	while (i < lens1 || i < lens2)

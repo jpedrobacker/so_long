@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbergfel <jbergfel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 10:38:50 by jbergfel          #+#    #+#             */
-/*   Updated: 2023/10/20 13:24:40 by jbergfel         ###   ########.fr       */
+/*   Updated: 2023/12/05 11:05:00 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strchr(const char *str, int c)
 	while (stri[i] != c)
 	{
 		if (stri[i] == '\0')
-			return (0);
+			return (NULL);
 		i++;
 	}
 	return (stri + i);
