@@ -6,17 +6,29 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 10:46:19 by jbergfel          #+#    #+#             */
-/*   Updated: 2023/12/07 16:46:36 by jbergfel         ###   ########.fr       */
+/*   Updated: 2023/12/07 18:44:46 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-void	move_right(t_mov *moves)
+int	update_move(t_player *move)
 {
-	int	x;
-	int	y;
+	int	i;
+	int	j;
+}
 
-	x = moves->posx;
-	y = moves->posy;
+int	w_s_controls()
+{
+
+}
+
+int	a_d_controls()
+{
+
+}
+
+int	compute_move()
+{
+
 }

@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 21:27:48 by jbergfel          #+#    #+#             */
-/*   Updated: 2023/12/07 16:46:29 by jbergfel         ###   ########.fr       */
+/*   Updated: 2023/12/07 20:07:20 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,19 +32,26 @@ typedef struct s_graphics
 {
 	void	*floor;
 	void	*wall;
-	void	*player;
-	void	*collectable;
+	void	*exit;
 }	t_graphics;
 
-typedef struct s_mov
+typedef struct s_score
 {
-	int	posx;
-	int	posy;
-}	t_mov;
+	void	*coin;
+	int		score;
+} t_score;
+
+
+typedef struct s_player
+{
+	int		pos_x;
+	int		pos_y;
+	void	*player;
+}	t_player;
 
 typedef struct s_layout
 {
-	char	**maps;
+	char	**map;
 	int		row;
 	int		col;
 	int		exit;
@@ -60,11 +67,10 @@ typedef struct s_data
 }	t_data;
 
 
-void		init_game(void);
-void		*spawn_player(void *ptr);
-int			player_events(int keycode, t_data *data);
-t_layout	new_layout(void);
-int			read_map(t_layout *layout, char **arr);
-void		graphics_env(t_data *data, t_graphics *graphs);
-void		adding_graphics(t_data *data ,t_layout *layout, t_graphics *img);
+void	init_game(void);
+int		read_map(t_layout *layout, char **arr);
+void	graphics_env(t_data *data, t_graphics *graphics, t_player *player, t_score *score);
+void	adding_graphics(t_data *data ,t_layout *layout, t_graphics *graphics, t_player *player, t_score *score);
+int		compute_move();
+
 #endif

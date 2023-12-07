@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   maps.c                                             :+:      :+:    :+:   */
+/*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 16:18:32 by jbergfel          #+#    #+#             */
-/*   Updated: 2023/12/07 16:40:37 by jbergfel         ###   ########.fr       */
+/*   Updated: 2023/12/07 18:45:55 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,13 @@ static int	new_line(t_layout *layout, char *str)
 	temp[layout->row] = NULL;
 	while (i < layout->row - 1)
 	{
-		temp[i] = layout->maps[i];
+		temp[i] = layout->map[i];
 		i++;
 	}
 	temp[i] = str;
-	if (layout->maps)
-		free(layout->maps);
-	layout->maps = temp;
+	if (layout->map)
+		free(layout->map);
+	layout->map = temp;
 	return (1);
 }
 
@@ -61,6 +61,6 @@ int	read_map(t_layout *layout, char **arr)
 			break ;
 	}
 	close (layout->fd);
-	layout->col = map_cols(layout->maps[0]);
+	layout->col = map_cols(layout->map[0]);
 	return (1);
 }
