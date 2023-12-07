@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 21:27:48 by jbergfel          #+#    #+#             */
-/*   Updated: 2023/12/06 19:13:39 by jbergfel         ###   ########.fr       */
+/*   Updated: 2023/12/07 16:46:29 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,18 @@
 # define HEIGHT			600
 # define SIDE_LEN		800
 
-typedef struct s_img
+typedef struct s_graphics
 {
-	
-}	t_img;
+	void	*floor;
+	void	*wall;
+	void	*player;
+	void	*collectable;
+}	t_graphics;
 
 typedef struct s_mov
 {
-	int	x;
-	int	y;
+	int	posx;
+	int	posy;
 }	t_mov;
 
 typedef struct s_layout
@@ -48,10 +51,6 @@ typedef struct s_layout
 	int		coin;
 	int		player;
 	int		fd;
-	void	*mlx_ptr;
-	void	*win_ptr;
-	void	*floor;
-	void	*wall;
 }	t_layout;
 
 typedef struct s_data
@@ -65,7 +64,7 @@ void		init_game(void);
 void		*spawn_player(void *ptr);
 int			player_events(int keycode, t_data *data);
 t_layout	new_layout(void);
-int			read_map(t_layout *map, char **arr);
-void		graphics(t_layout *data);
-void		adding_graphics(t_layout *data);
+int			read_map(t_layout *layout, char **arr);
+void		graphics_env(t_data *data, t_graphics *graphs);
+void		adding_graphics(t_data *data ,t_layout *layout, t_graphics *img);
 #endif
