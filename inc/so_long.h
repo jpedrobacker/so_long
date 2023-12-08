@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 21:27:48 by jbergfel          #+#    #+#             */
-/*   Updated: 2023/12/07 20:07:20 by jbergfel         ###   ########.fr       */
+/*   Updated: 2023/12/08 19:25:02 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,6 @@ void	init_game(void);
 int		read_map(t_layout *layout, char **arr);
 void	graphics_env(t_data *data, t_graphics *graphics, t_player *player, t_score *score);
 void	adding_graphics(t_data *data ,t_layout *layout, t_graphics *graphics, t_player *player, t_score *score);
-int		compute_move();
-
+int		compute_move(int key, t_data *data, t_layout *layout, t_player *move, t_graphics *graph, t_score *score);
+int		exit_point(t_data *data, t_layout *layout);
 #endif

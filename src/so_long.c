@@ -6,11 +6,31 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 21:38:37 by jbergfel          #+#    #+#             */
-/*   Updated: 2023/12/07 20:07:07 by jbergfel         ###   ########.fr       */
+/*   Updated: 2023/12/08 20:53:54 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
+
+int	exit_point(t_data *data, t_layout *layout)
+{
+	int	line;
+
+	line = 0;
+	if (data->mlx_ptr)
+		mlx_destroy_window(data->mlx_ptr, data->mlx_ptr);
+	free(data->mlx_ptr);
+	while (line < layout->row - 1)
+		free(layout->map[line++]);
+	free(layout->map);
+	exit(0);
+}
+
+int porra(int key, t_data *data)
+{
+	printf("%d key\n", key);
+	return (1);
+}
 
 void	init_game(void)
 {
@@ -27,6 +47,6 @@ void	init_game(void)
 	data.win_ptr = mlx_new_window(data.mlx_ptr, WIDTH, HEIGHT, "my window");
 	graphics_env(&data, &graphics, &player, &score);
 	adding_graphics(&data, &layout, &graphics, &player, &score);
-	//mlx_key_hook(data.win_ptr, player_events, &data);
+	mlx_key_hook(data.win_ptr, compute_move, &player);
 	mlx_loop(data.mlx_ptr);
 }

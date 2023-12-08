@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 06:42:25 by jbergfel          #+#    #+#             */
-/*   Updated: 2023/12/08 13:41:43 by jbergfel         ###   ########.fr       */
+/*   Updated: 2023/12/08 19:45:28 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,15 @@ void	graphics_env(t_data *data, t_graphics *graphics, t_player *player, t_score 
 
 void	count_score(t_data *data, t_score *score, int row, int col)
 {
-	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, score->coin, row *45, col *45);
+	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, score->coin, col *45, row *45);
 	score->score++;
 }
 
 void	spawn_player(t_data *data, t_player *player, int row, int col)
 {
-	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, player->player, row * 45, col *45);
-	player->pos_x = row;
-	player->pos_y = col;
+	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, player->player, col * 45, row *45);
+	player->pos_x = col;
+	player->pos_y = row;
 }
 
 void	adding_graphics(t_data *data ,t_layout *layout, t_graphics *graphics, t_player *player, t_score *score)
