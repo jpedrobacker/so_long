@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 06:42:25 by jbergfel          #+#    #+#             */
-/*   Updated: 2023/12/07 20:06:47 by jbergfel         ###   ########.fr       */
+/*   Updated: 2023/12/08 13:41:43 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ void	graphics_env(t_data *data, t_graphics *graphics, t_player *player, t_score 
 	int	i;
 	int	j;
 
-	graphics->floor = mlx_xpm_file_to_image(data->mlx_ptr, "../sprites/kanye.xpm", &i, &j);
+	graphics->floor = mlx_xpm_file_to_image(data->mlx_ptr, "../sprites/floor.xpm", &i, &j);
 	graphics->wall = mlx_xpm_file_to_image(data->mlx_ptr, "../sprites/poze-do-gordo.xpm", &i, &j);
 	graphics->exit = mlx_xpm_file_to_image(data->mlx_ptr, "", &i, &j);
 	score->coin = mlx_xpm_file_to_image(data->mlx_ptr, "", &i, &j);
-	player->player = mlx_xpm_file_to_image(data->mlx_ptr, "", &i, &j);
+	player->player = mlx_xpm_file_to_image(data->mlx_ptr, "../sprites/player.xpm", &i, &j);
 }
 
 void	count_score(t_data *data, t_score *score, int row, int col)
@@ -53,10 +53,10 @@ void	adding_graphics(t_data *data ,t_layout *layout, t_graphics *graphics, t_pla
 			{
 				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, graphics->wall, col * 45, row * 45);
 			}
-			if (layout->map[row][col] == 'C')
+			/*if (layout->map[row][col] == 'C')
 			{
 				count_score(data, score, row, col);
-			}
+			}*/
 			if (layout->map[row][col] == 'P')
 			{
 				spawn_player(data, player, row, col);
