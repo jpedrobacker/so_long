@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 21:27:48 by jbergfel          #+#    #+#             */
-/*   Updated: 2023/12/09 22:01:38 by jbergfel         ###   ########.fr       */
+/*   Updated: 2023/12/09 22:18:55 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ typedef struct s_score
 	int		score;
 } t_score;
 
-
 typedef struct s_player
 {
 	int		pos_x;
@@ -73,4 +72,5 @@ void	graphics_env(t_data *data, t_graphics *graphics, t_player *player, t_score 
 void	adding_graphics(t_data *data ,t_layout *layout, t_graphics *graphics, t_player *player, t_score *score);
 int		compute_move(int key, t_data *data, t_layout *layout, t_player *player, t_graphics *graph, t_score *score);
 int		exit_point(t_data *data, t_layout *layout);
+
 #endif
