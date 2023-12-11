@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 21:27:48 by jbergfel          #+#    #+#             */
-/*   Updated: 2023/12/09 22:18:55 by jbergfel         ###   ########.fr       */
+/*   Updated: 2023/12/11 17:48:46 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,13 @@ typedef struct s_graphics
 	void	*exit;
 }	t_graphics;
 
-typedef struct s_score
-{
-	void	*coin;
-	int		score;
-} t_score;
-
 typedef struct s_player
 {
 	int		pos_x;
 	int		pos_y;
+	int		score;
 	void	*player;
+	void	*coin;
 }	t_player;
 
 typedef struct s_layout
@@ -68,9 +64,9 @@ typedef struct s_data
 
 void	init_game(void);
 int		read_map(t_layout *layout, char **arr);
-void	graphics_env(t_data *data, t_graphics *graphics, t_player *player, t_score *score);
-void	adding_graphics(t_data *data ,t_layout *layout, t_graphics *graphics, t_player *player, t_score *score);
-int		compute_move(int key, t_data *data, t_layout *layout, t_player *player, t_graphics *graph, t_score *score);
+void	graphics_env(t_data *data, t_graphics *graphics, t_player *player);
+void	adding_graphics(t_data *data ,t_layout *layout, t_graphics *graphics, t_player *player);
+int		compute_move(int key, t_data *data, t_layout *layout, t_player *player, t_graphics *graph);
 int		exit_point(t_data *data, t_layout *layout);
 
 #endif

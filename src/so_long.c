@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 21:38:37 by jbergfel          #+#    #+#             */
-/*   Updated: 2023/12/09 22:17:08 by jbergfel         ###   ########.fr       */
+/*   Updated: 2023/12/11 17:47:44 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,14 @@ void	init_game(void)
 	t_data		data;
 	t_graphics	graphics;
 	t_player	player;
-	t_score		score;
 	char		*path[] = {"../tests/map1.ber"};
 
 	ft_memset(&data, 0, sizeof(t_layout));
 	read_map(&layout, path);
 	data.mlx_ptr = mlx_init();
 	data.win_ptr = mlx_new_window(data.mlx_ptr, WIDTH, HEIGHT, "my window");
-	graphics_env(&data, &graphics, &player, &score);
-	adding_graphics(&data, &layout, &graphics, &player, &score);
+	graphics_env(&data, &graphics, &player);
+	adding_graphics(&data, &layout, &graphics, &player);
 	mlx_key_hook(data.win_ptr, compute_move, &data);
 	mlx_loop(data.mlx_ptr);
 }

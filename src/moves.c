@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 10:46:19 by jbergfel          #+#    #+#             */
-/*   Updated: 2023/12/09 22:18:34 by jbergfel         ###   ########.fr       */
+/*   Updated: 2023/12/11 17:51:52 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,21 +34,21 @@ static int	w_s_controls(int key, t_player *player, t_layout *layout)
 	if (key == 115)
 	{
 		row--;
-		//if (layout->map[row][col] == '1')
-			//return (0);
+		if (layout->map[row][col] == '1')
+			return (0);
 		k = update_move(player, layout, row, col);
-		//if (!k)
-			//return (0);
+		if (!k)
+			return (0);
 		layout->map[row + 1][col] = '0';
 	}
 	else if (key == 119)
 	{
 		row++;
-		//if (layout->map[row][col] == '1')
-			//return (0);
+		if (layout->map[row][col] == '1')
+			return (0);
 		k = update_move(player, layout, row, col);
-		//if (!k)
-			//return (0);
+		if (!k)
+			return (0);
 		layout->map[row - 1][col] = '0';
 	}
 	return (1);
@@ -59,7 +59,7 @@ static int	a_d_controls(t_player *player)
 	return (1);
 }
 
-int	compute_move(int key, t_data *data, t_layout *layout, t_player *player, t_graphics *graph, t_score *score)
+int	compute_move(int key, t_data *data, t_layout *layout, t_player *player, t_graphics *graph)
 {
 	int	com;
 
@@ -68,6 +68,6 @@ int	compute_move(int key, t_data *data, t_layout *layout, t_player *player, t_gr
 	if (key == 115)
 		com = w_s_controls(key, player, layout);
 	if (com)
-		adding_graphics(data, layout, graph, player, score);
+		adding_graphics(data, layout, graph, player);
 	return (1);
 }
