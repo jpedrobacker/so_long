@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 10:46:19 by jbergfel          #+#    #+#             */
-/*   Updated: 2023/12/11 17:51:52 by jbergfel         ###   ########.fr       */
+/*   Updated: 2023/12/11 18:13:15 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,10 @@ static int	w_s_controls(int key, t_player *player, t_layout *layout)
 	return (1);
 }
 
-static int	a_d_controls(t_player *player)
+static int	a_d_controls(int key, t_player *player, t_layout *layout)
 {
+	//key 97 = a
+	//key 100 = d
 	return (1);
 }
 
