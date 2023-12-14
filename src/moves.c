@@ -6,70 +6,70 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 10:46:19 by jbergfel          #+#    #+#             */
-/*   Updated: 2023/12/11 18:13:15 by jbergfel         ###   ########.fr       */
+/*   Updated: 2023/12/13 22:13:25 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-static int	update_move(t_player *player, t_layout *layout, int row, int col)
+static int	update_move(t_all *all, int row, int col)
 {
-	if (layout->map[row][col] == '0')
+	if (all->map[row][col] == '0')
 	{
-		layout->map[row][col] = 'P';
-		player->pos_x = col;
-		player->pos_y = row;
+		all->map[row][col] = 'P';
+		all->pos_x = col;
+		all->pos_y = row;
 	}
 	return (1);
 }
 
-static int	w_s_controls(int key, t_player *player, t_layout *layout)
+static int	w_s_controls(int key, t_all *all)
 {
 	int	row;
 	int	col;
 	int	k;
 
-	col = player->pos_x;
-	row = player->pos_y;
-	if (key == 115)
+	col = all->pos_x;
+	row = all->pos_y;
+	if (key == 119)
 	{
 		row--;
-		if (layout->map[row][col] == '1')
+		if (all->map[row][col] == '1')
 			return (0);
-		k = update_move(player, layout, row, col);
+		k = update_move(all, row, col);
 		if (!k)
 			return (0);
-		layout->map[row + 1][col] = '0';
+		all->map[row + 1][col] = '0';
 	}
-	else if (key == 119)
+	else if (key == 115)
 	{
 		row++;
-		if (layout->map[row][col] == '1')
+		if (all->map[row][col] == '1')
 			return (0);
-		k = update_move(player, layout, row, col);
+		k = update_move(all, row, col);
 		if (!k)
 			return (0);
-		layout->map[row - 1][col] = '0';
+		all->map[row - 1][col] = '0';
 	}
 	return (1);
 }
 
-static int	a_d_controls(int key, t_player *player, t_layout *layout)
+static int	a_d_controls(int key, t_all *all)
 {
 	//key 97 = a
 	//key 100 = d
 	return (1);
 }
 
-int	compute_move(int key, t_data *data, t_layout *layout, t_player *player, t_graphics *graph)
+int	compute_move(int key, t_all *all)
 {
 	int	com;
 
 	if (key == 119)
-		com = w_s_controls(key, player, layout);
+		com = w_s_controls(key, all);
 	if (key == 115)
-		com = w_s_controls(key, player, layout);
+		com = w_s_controls(key, all);
 	if (com)
-		adding_graphics(data, layout, graph, player);
+		adding_graphics(all);
 	return (1);
 }

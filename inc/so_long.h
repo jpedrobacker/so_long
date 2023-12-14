@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 21:27:48 by jbergfel          #+#    #+#             */
-/*   Updated: 2023/12/11 17:48:46 by jbergfel         ###   ########.fr       */
+/*   Updated: 2023/12/13 22:10:14 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,31 @@ typedef struct s_data
 	void	*win_ptr;
 }	t_data;
 
+typedef struct s_all
+{
+	void	*mlx_ptr;
+	void	*win_ptr;
+	char	**map;
+	int		row;
+	int		col;
+	int		lcoin;
+	int		lplayer;
+	int		fd;
+	int		pos_x;
+	int		pos_y;
+	int		score;
+	void	*player;
+	void	*coin;
+	void	*floor;
+	void	*wall;
+	void	*exit;
+}	t_all;
 
 void	init_game(void);
-int		read_map(t_layout *layout, char **arr);
-void	graphics_env(t_data *data, t_graphics *graphics, t_player *player);
-void	adding_graphics(t_data *data ,t_layout *layout, t_graphics *graphics, t_player *player);
-int		compute_move(int key, t_data *data, t_layout *layout, t_player *player, t_graphics *graph);
-int		exit_point(t_data *data, t_layout *layout);
+int		read_map(t_all *all, char **arr);
+void	graphics_env(t_all *all);
+void	adding_graphics(t_all *all);
+int		compute_move(int key, t_all *all);
+int		exit_point(t_all *all);
 
 #endif

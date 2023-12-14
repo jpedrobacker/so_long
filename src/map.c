@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 16:18:32 by jbergfel          #+#    #+#             */
-/*   Updated: 2023/12/11 17:42:06 by jbergfel         ###   ########.fr       */
+/*   Updated: 2023/12/13 22:03:38 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int	map_cols(char *str)
 	return (cols);
 }
 
-static int	new_line(t_layout *layout, char *str)
+static int	new_line(t_all *all, char *str)
 {
 	char	**temp;
 	int		i;
@@ -32,35 +32,35 @@ static int	new_line(t_layout *layout, char *str)
 	if (!str)
 		return (0);
 	i = 0;
-	layout->row++;
-	temp = (char **)malloc(sizeof(char *) * (layout->row + 1));
-	temp[layout->row] = NULL;
-	while (i < layout->row - 1)
+	all->row++;
+	temp = (char **)malloc(sizeof(char *) * (all->row + 1));
+	temp[all->row] = NULL;
+	while (i < all->row - 1)
 	{
-		temp[i] = layout->map[i];
+		temp[i] = all->map[i];
 		i++;
 	}
 	temp[i] = str;
-	if (layout->map)
-		free(layout->map);
-	layout->map = temp;
+	if (all->map)
+		free(all->map);
+	all->map = temp;
 	return (1);
 }
 
-int	read_map(t_layout *layout, char **arr)
+int	read_map(t_all *all, char **arr)
 {
 	char	*readmap;
 
-	layout->fd = open(*arr, O_RDONLY);
-	if (layout->fd < 0)
+	all->fd = open(*arr, O_RDONLY);
+	if (all->fd < 0)
 		return (0);
 	while (1)
 	{
-		readmap = get_next_line(layout->fd);
-		if (!new_line(layout, readmap))
+		readmap = get_next_line(all->fd);
+		if (!new_line(all, readmap))
 			break ;
 	}
-	close (layout->fd);
-	layout->col = map_cols(layout->map[0]);
+	close (all->fd);
+	all->col = map_cols(all->map[0]);
 	return (1);
 }

@@ -6,64 +6,64 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 06:42:25 by jbergfel          #+#    #+#             */
-/*   Updated: 2023/12/11 17:47:53 by jbergfel         ###   ########.fr       */
+/*   Updated: 2023/12/13 22:10:33 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-void	graphics_env(t_data *data, t_graphics *graphics, t_player *player)
+void	graphics_env(t_all *all)
 {
 	int	i;
 	int	j;
 
-	graphics->floor = mlx_xpm_file_to_image(data->mlx_ptr, "../sprites/floor.xpm", &i, &j);
-	graphics->wall = mlx_xpm_file_to_image(data->mlx_ptr, "../sprites/poze-do-gordo.xpm", &i, &j);
-	graphics->exit = mlx_xpm_file_to_image(data->mlx_ptr, "", &i, &j);
-	player->coin = mlx_xpm_file_to_image(data->mlx_ptr, "", &i, &j);
-	player->player = mlx_xpm_file_to_image(data->mlx_ptr, "../sprites/player.xpm", &i, &j);
+	all->floor = mlx_xpm_file_to_image(all->mlx_ptr, "../sprites/floor.xpm", &i, &j);
+	all->wall = mlx_xpm_file_to_image(all->mlx_ptr, "../sprites/poze-do-gordo.xpm", &i, &j);
+	all->exit = mlx_xpm_file_to_image(all->mlx_ptr, "", &i, &j);
+	//all->coin = mlx_xpm_file_to_image(all->mlx_ptr, "", &i, &j);
+	all->player = mlx_xpm_file_to_image(all->mlx_ptr, "../sprites/player.xpm", &i, &j);
 }
 
-static void	count_score(t_data *data, t_player *player, int row, int col)
+static void	count_score(t_all *all, int row, int col)
 {
-	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, player->coin, col *45, row *45);
-	player->score++;
+	mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->coin, col *45, row *45);
+	all->score++;
 }
 
-static void	spawn_player(t_data *data, t_player *player, int row, int col)
+static void	spawn_player(t_all *all, int row, int col)
 {
-	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, player->player, col * 45, row *45);
-	player->pos_x = col;
-	player->pos_y = row;
+	mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->player, col * 45, row *45);
+	all->pos_x = col;
+	all->pos_y = row;
 }
 
-void	adding_graphics(t_data *data ,t_layout *layout, t_graphics *graphics, t_player *player)
+void	adding_graphics(t_all *all)
 {
 	int	row;
 	int	col;
 
 	row = 0;
-	player->score = 0;
-	while (row < layout->row)
+	all->score = 0;
+	while (row < all->row)
 	{
 		col = 0;
-		while (layout->map[row][col])
+		while (all->map[row][col])
 		{
-			if (layout->map[row][col] == '1')
+			if (all->map[row][col] == '1')
 			{
-				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, graphics->wall, col * 45, row * 45);
+				mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->wall, col * 45, row * 45);
 			}
-			/*if (layout->map[row][col] == 'C')
+			/*if (all->map[row][col] == 'C')
 			{
-				count_score(data, score, row, col);
+				count_score(all, score, row, col);
 			}*/
-			if (layout->map[row][col] == 'P')
+			if (all->map[row][col] == 'P')
 			{
-				spawn_player(data, player, row, col);
+				spawn_player(all, row, col);
 			}
-			if (layout->map[row][col] == '0')
+			if (all->map[row][col] == '0')
 			{
-				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, graphics->floor, col * 45, row * 45);
+				mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->floor, col * 45, row * 45);
 			}
 			col++;
 		}
