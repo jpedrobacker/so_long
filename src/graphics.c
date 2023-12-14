@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 06:42:25 by jbergfel          #+#    #+#             */
-/*   Updated: 2023/12/13 22:10:33 by jbergfel         ###   ########.fr       */
+/*   Updated: 2023/12/14 14:12:13 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,21 @@ void	graphics_env(t_all *all)
 	int	j;
 
 	all->floor = mlx_xpm_file_to_image(all->mlx_ptr, "../sprites/floor.xpm", &i, &j);
-	all->wall = mlx_xpm_file_to_image(all->mlx_ptr, "../sprites/poze-do-gordo.xpm", &i, &j);
-	all->exit = mlx_xpm_file_to_image(all->mlx_ptr, "", &i, &j);
+	all->wall = mlx_xpm_file_to_image(all->mlx_ptr, "../sprites/cactus.xpm", &i, &j);
+	//all->exit = mlx_xpm_file_to_image(all->mlx_ptr, "", &i, &j);
 	//all->coin = mlx_xpm_file_to_image(all->mlx_ptr, "", &i, &j);
-	all->player = mlx_xpm_file_to_image(all->mlx_ptr, "../sprites/player.xpm", &i, &j);
+	all->player = mlx_xpm_file_to_image(all->mlx_ptr, "../sprites/outlaw.xpm", &i, &j);
 }
 
 static void	count_score(t_all *all, int row, int col)
 {
-	mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->coin, col *45, row *45);
+	mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->coin, col *64, row *64);
 	all->score++;
 }
 
 static void	spawn_player(t_all *all, int row, int col)
 {
-	mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->player, col * 45, row *45);
+	mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->player, col * 64, row *64);
 	all->pos_x = col;
 	all->pos_y = row;
 }
@@ -51,7 +51,7 @@ void	adding_graphics(t_all *all)
 		{
 			if (all->map[row][col] == '1')
 			{
-				mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->wall, col * 45, row * 45);
+				mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->wall, col * 64, row * 64);
 			}
 			/*if (all->map[row][col] == 'C')
 			{
@@ -63,7 +63,7 @@ void	adding_graphics(t_all *all)
 			}
 			if (all->map[row][col] == '0')
 			{
-				mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->floor, col * 45, row * 45);
+				mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->floor, col * 64, row * 64);
 			}
 			col++;
 		}
