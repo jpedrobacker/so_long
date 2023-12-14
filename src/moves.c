@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 10:46:19 by jbergfel          #+#    #+#             */
-/*   Updated: 2023/12/14 14:23:03 by jbergfel         ###   ########.fr       */
+/*   Updated: 2023/12/14 14:36:01 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@ static int	update_move(t_all *all, int row, int col)
 		all->map[row][col] = 'P';
 		all->pos_x = col;
 		all->pos_y = row;
+	}
+	if (all->map[row][col] == 'E')
+	{
+		if(all->lcoin != all->score)
+			return (0);
 	}
 	return (1);
 }

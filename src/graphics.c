@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 06:42:25 by jbergfel          #+#    #+#             */
-/*   Updated: 2023/12/14 14:12:13 by jbergfel         ###   ########.fr       */
+/*   Updated: 2023/12/14 14:48:23 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	graphics_env(t_all *all)
 
 	all->floor = mlx_xpm_file_to_image(all->mlx_ptr, "../sprites/floor.xpm", &i, &j);
 	all->wall = mlx_xpm_file_to_image(all->mlx_ptr, "../sprites/cactus.xpm", &i, &j);
-	//all->exit = mlx_xpm_file_to_image(all->mlx_ptr, "", &i, &j);
-	//all->coin = mlx_xpm_file_to_image(all->mlx_ptr, "", &i, &j);
+	all->exit = mlx_xpm_file_to_image(all->mlx_ptr, "../sprites/horse.xpm", &i, &j);
+	all->coin = mlx_xpm_file_to_image(all->mlx_ptr, "", &i, &j);
 	all->player = mlx_xpm_file_to_image(all->mlx_ptr, "../sprites/outlaw.xpm", &i, &j);
 }
 
@@ -57,6 +57,10 @@ void	adding_graphics(t_all *all)
 			{
 				count_score(all, score, row, col);
 			}*/
+			if (all->map[row][col] == 'E')
+			{
+				mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->exit, col *64, row * 64);
+			}
 			if (all->map[row][col] == 'P')
 			{
 				spawn_player(all, row, col);
