@@ -6,13 +6,13 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 21:38:37 by jbergfel          #+#    #+#             */
-/*   Updated: 2023/12/14 13:33:00 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/01/01 14:55:12 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-/*int	exit_point(t_data *data, t_layout *layout)
+int	exit_point(t_data *data, t_layout *layout)
 {
 	int	line;
 
@@ -24,7 +24,7 @@
 		free(layout->map[line++]);
 	free(layout->map);
 	exit(0);
-}*/
+}
 
 int porra(int key, t_data *data)
 {
