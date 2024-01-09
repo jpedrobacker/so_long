@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 21:27:48 by jbergfel          #+#    #+#             */
-/*   Updated: 2023/12/13 22:10:14 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/01/09 14:00:17 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,12 +68,12 @@ typedef struct s_all
 	char	**map;
 	int		row;
 	int		col;
-	int		lcoin;
 	int		lplayer;
-	int		fd;
 	int		pos_x;
 	int		pos_y;
 	int		score;
+	int		to_score;
+	int		fd;
 	void	*player;
 	void	*coin;
 	void	*floor;

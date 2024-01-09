@@ -6,11 +6,16 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 10:46:19 by jbergfel          #+#    #+#             */
-/*   Updated: 2023/12/14 14:36:01 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/01/09 14:06:11 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
+
+int	exit_point(t_all *all)
+{
+	mlx_destroy_window(all->mlx_ptr, all->mlx_ptr);
+}
 
 static int	update_move(t_all *all, int row, int col)
 {
@@ -20,10 +25,21 @@ static int	update_move(t_all *all, int row, int col)
 		all->pos_x = col;
 		all->pos_y = row;
 	}
+	if (all->map[row][col] == 'C')
+	{
+		all->map[row][col] = 'P';
+		all->pos_x = col;
+		all->pos_y = row;
+		all->score++;
+	}
 	if (all->map[row][col] == 'E')
 	{
-		if(all->lcoin != all->score)
+		if (all->score == all->to_score)
+		{
+			mlx_destroy_window(all->mlx_ptr, all->mlx_ptr);
 			return (0);
+		}
+		return (0);
 	}
 	return (1);
 }
@@ -93,7 +109,7 @@ static int	a_d_controls(int key, t_all *all)
 int	compute_move(int key, t_all *all)
 {
 	int	com;
-
+	all->score = 0;
 	if (key == XK_w || key == XK_s)
 		com = w_s_controls(key, all);
 	if (key == XK_a || key == XK_d)
