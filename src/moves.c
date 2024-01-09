@@ -6,19 +6,15 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 10:46:19 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/01/09 14:06:11 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/01/09 15:38:21 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-int	exit_point(t_all *all)
-{
-	mlx_destroy_window(all->mlx_ptr, all->mlx_ptr);
-}
-
 static int	update_move(t_all *all, int row, int col)
 {
+	int	i = 1;
 	if (all->map[row][col] == '0')
 	{
 		all->map[row][col] = 'P';
@@ -36,8 +32,9 @@ static int	update_move(t_all *all, int row, int col)
 	{
 		if (all->score == all->to_score)
 		{
-			mlx_destroy_window(all->mlx_ptr, all->mlx_ptr);
-			return (0);
+			mlx_destroy_display(all->mlx_ptr);
+			mlx_destroy_window(all->mlx_ptr, all->win_ptr);
+			init_game(i);
 		}
 		return (0);
 	}
