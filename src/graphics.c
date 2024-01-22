@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 06:42:25 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/01/09 14:04:35 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/01/22 12:15:01 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 void	graphics_env(t_all *all)
 {
-	int	i;
-	int	j;
+	int	row;
+	int	col;
 
-	all->floor = mlx_xpm_file_to_image(all->mlx_ptr, "../sprites/floor.xpm", &i, &j);
-	all->wall = mlx_xpm_file_to_image(all->mlx_ptr, "../sprites/cactus.xpm", &i, &j);
-	all->exit = mlx_xpm_file_to_image(all->mlx_ptr, "../sprites/horse.xpm", &i, &j);
-	all->coin = mlx_xpm_file_to_image(all->mlx_ptr, "../sprites/carrot.xpm", &i, &j);
-	all->player = mlx_xpm_file_to_image(all->mlx_ptr, "../sprites/outlaw.xpm", &i, &j);
+	all->floor = mlx_xpm_file_to_image(all->mlx_ptr, "../sprites/floor.xpm", &row, &col);
+	all->wall = mlx_xpm_file_to_image(all->mlx_ptr, "../sprites/cactus.xpm", &row, &col);
+	all->exit = mlx_xpm_file_to_image(all->mlx_ptr, "../sprites/horse.xpm", &row, &col);
+	all->coin = mlx_xpm_file_to_image(all->mlx_ptr, "../sprites/carrot.xpm", &row, &col);
+	all->player = mlx_xpm_file_to_image(all->mlx_ptr, "../sprites/outlaw_foward.xpm", &row, &col);
 }
 
 static void	count_score(t_all *all, int row, int col)

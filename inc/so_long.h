@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 21:27:48 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/01/09 15:33:27 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/01/22 15:25:10 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,14 +74,16 @@ typedef struct s_all
 	int		score;
 	int		to_score;
 	int		fd;
+	int		start;
 	void	*player;
 	void	*coin;
 	void	*floor;
 	void	*wall;
 	void	*exit;
+	void	*menu;
 }	t_all;
 
-void	init_game(int i);
+void	init_game(int a);
 int		read_map(t_all *all, char *arr);
 void	graphics_env(t_all *all);
 void	adding_graphics(t_all *all);
