@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 18:35:45 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/01/23 14:44:18 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/01/23 15:08:52 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,16 @@
 int	start(int key, t_all *all)
 {
 	if (key == 65293)
+	{
 		mlx_destroy_display(all->mlx_ptr);
 		init_game(0);
+	}
 	if (key == 65307)
-		mlx_destroy_display(all->mlx_ptr);
+	{
+		mlx_destroy_window(all->mlx_ptr, all->win_ptr);
+		free(all->win_ptr);
+		free(all->mlx_ptr);
+	}
 	printf("%d key \n", key);
 	return (1);
 }
