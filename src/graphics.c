@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 06:42:25 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/01/22 12:15:01 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/01/23 14:22:17 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	adding_graphics(t_all *all)
 			}
 			if (all->map[row][col] == 'E')
 			{
-				mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->exit, col *64, row * 64);
+				mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->exit, col * 64, row * 64);
 			}
 			if (all->map[row][col] == 'P')
 			{
