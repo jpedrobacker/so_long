@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 21:27:48 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/01/23 14:31:57 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/01/24 15:23:22 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@
 
 # define MLX_ERROR		0
 # define MALLOC_ERROR	1
-# define WIDTH			600
-# define HEIGHT			600
+# define WIDTH			64
+# define HEIGHT			64
 # define SIDE_LEN		800
 
 typedef struct s_graphics
@@ -66,6 +66,7 @@ typedef struct s_all
 	void	*mlx_ptr;
 	void	*win_ptr;
 	char	**map;
+	int		map_error;
 	int		row;
 	int		col;
 	int		lplayer;
@@ -73,6 +74,8 @@ typedef struct s_all
 	int		pos_y;
 	int		score;
 	int		to_score;
+	int		score_ok;
+	int		can_finish;
 	int		fd;
 	int		start;
 	void	*player;
