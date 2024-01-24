@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 06:42:25 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/01/23 14:22:17 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/01/23 17:59:41 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ void	graphics_env(t_all *all)
 
 static void	count_score(t_all *all, int row, int col)
 {
-	mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->coin, col *64, row *64);
+	mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->coin, col * HEIGHT, row * WIDTH);
 	all->to_score++;
 }
 
 static void	spawn_player(t_all *all, int row, int col)
 {
-	mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->player, col * 64, row *64);
+	mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->player, col * HEIGHT, row * WIDTH);
 	all->pos_x = col;
 	all->pos_y = row;
 }
@@ -52,7 +52,7 @@ void	adding_graphics(t_all *all)
 		{
 			if (all->map[row][col] == '1')
 			{
-				mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->wall, col * 64, row * 64);
+				mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->wall, col * HEIGHT, row * WIDTH);
 			}
 			if (all->map[row][col] == 'C')
 			{
@@ -60,7 +60,7 @@ void	adding_graphics(t_all *all)
 			}
 			if (all->map[row][col] == 'E')
 			{
-				mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->exit, col * 64, row * 64);
+				mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->exit, col * HEIGHT, row * WIDTH);
 			}
 			if (all->map[row][col] == 'P')
 			{
@@ -68,7 +68,7 @@ void	adding_graphics(t_all *all)
 			}
 			if (all->map[row][col] == '0')
 			{
-				mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->floor, col * 64, row * 64);
+				mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->floor, col * HEIGHT, row * WIDTH);
 			}
 			col++;
 		}
