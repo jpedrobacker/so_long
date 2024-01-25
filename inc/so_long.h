@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 21:27:48 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/01/24 15:23:22 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/01/25 13:57:18 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ typedef struct s_all
 
 void	init_game(int a);
 int		start(int key, t_all *all);
-int		read_map(t_all *all, char *arr);
+int		read_map(t_all *all, char **arr);
 void	graphics_env(t_all *all);
 void	adding_graphics(t_all *all);
 int		compute_move(int key, t_all *all);

@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 18:52:28 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/01/24 15:28:43 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/01/25 13:45:24 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,5 @@ void	check_map_errors(t_all *all)
 
 	temp_map = all->map;
 	check_walls(all);
-	map_flood(all, temp_map, all->pos_x, all->pos_y);
+	//map_flood(all, temp_map, all->pos_x, all->pos_y);
 }
