@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 21:38:37 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/01/25 13:56:54 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/01/25 19:44:05 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	init_game(int a)
 	char		*path[] = {"../tests/map1.ber", "../tests/map2.ber", NULL};
 
 	ft_memset(&all, 0, sizeof(t_all));
-	read_map(&all, **path);
+	read_map(&all, path);
 	all.mlx_ptr = mlx_init();
 	all.win_ptr = mlx_new_window(all.mlx_ptr, all.col * HEIGHT, all.row * WIDTH, "Red Carrot Redemptiom");
 	graphics_env(&all);

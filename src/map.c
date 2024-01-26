@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 16:18:32 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/01/25 14:02:08 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/01/25 19:44:58 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,20 +61,24 @@ int	read_map(t_all *all, char **arr)
 {
 	char	*readmap;
 	int		i;
+	int		j;
 
-	while()
+	j = 0;
+	i = count_levels(arr);
+	while(j <= i)
 	{
-		all->fd = open(arr[i], O_RDONLY);
+		all->fd = open(arr[j], O_RDONLY);
 		if (all->fd < 0)
 			return (0);
+		j++;
+		while (1)
+		{
+			readmap = get_next_line(all->fd);
+			if (!new_line(all, readmap))
+				break ;
+		}
+		close (all->fd);
+		all->col = map_cols(all->map[0]);
 	}
-	while (1)
-	{
-		readmap = get_next_line(all->fd);
-		if (!new_line(all, readmap))
-			break ;
-	}
-	close (all->fd);
-	all->col = map_cols(all->map[0]);
 	return (1);
 }
