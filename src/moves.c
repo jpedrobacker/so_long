@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 10:46:19 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/01/22 15:29:12 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/01/30 11:21:06 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 static int	update_move(t_all *all, int row, int col)
 {
-	int	i = 1;
 	if (all->map[row][col] == '0')
 	{
 		all->map[row][col] = 'P';
@@ -27,14 +26,18 @@ static int	update_move(t_all *all, int row, int col)
 		all->pos_x = col;
 		all->pos_y = row;
 		all->score++;
+		if (all->score == all->to_score)
+		{
+			all->can_finish = 1;
+		}
 	}
 	if (all->map[row][col] == 'E')
 	{
-		if (all->score == all->to_score)
+		if (all->can_finish == 1)
 		{
+			all->current_level;
 			mlx_destroy_display(all->mlx_ptr);
-			mlx_destroy_window(all->mlx_ptr, all->win_ptr);
-			init_game(i);
+			init_game();
 		}
 		return (0);
 	}
@@ -110,9 +113,8 @@ static int	a_d_controls(int key, t_all *all)
 int	compute_move(int key, t_all *all)
 {
 	int	com;
+
 	all->score = 0;
-	if (key == XK_j)
-		all->start = 1;
 	if (key == XK_w || key == XK_s)
 		com = w_s_controls(key, all);
 	if (key == XK_a || key == XK_d)

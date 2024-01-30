@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 21:27:48 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/01/25 19:38:34 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/01/30 11:35:15 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ typedef struct s_all
 	void	*mlx_ptr;
 	void	*win_ptr;
 	char	**map;
+	char	**path;
 	int		map_error;
 	int		row;
 	int		col;
@@ -76,6 +77,7 @@ typedef struct s_all
 	int		to_score;
 	int		score_ok;
 	int		can_finish;
+	int		current_level;
 	int		fd;
 	int		start;
 	void	*player;
@@ -86,11 +88,12 @@ typedef struct s_all
 	void	*menu;
 }	t_all;
 
-void	init_game(int a);
+void	init_game();
 int		start(int key, t_all *all);
-int		read_map(t_all *all, char **arr);
+int		read_map(t_all *all, char *arr);
 void	graphics_env(t_all *all);
 void	adding_graphics(t_all *all);
 int		compute_move(int key, t_all *all);
+void	check_map_errors(t_all *all);
 
 #endif

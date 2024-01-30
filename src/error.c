@@ -6,13 +6,13 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 18:52:28 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/01/25 13:45:24 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/01/30 10:34:15 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-int	check_hwall(t_all *all)
+static int	check_hwall(t_all *all)
 {
 	int	x;
 	int	y;
@@ -28,7 +28,7 @@ int	check_hwall(t_all *all)
 	return (1);
 }
 
-int	check_vwall(t_all *all)
+static int	check_vwall(t_all *all)
 {
 	int	x;
 	int	y;
@@ -45,7 +45,7 @@ int	check_vwall(t_all *all)
 	return (1);
 }
 
-void	check_walls(t_all *all)
+static void	check_walls(t_all *all)
 {
 	int	hwall;
 	int vwall;
@@ -55,12 +55,12 @@ void	check_walls(t_all *all)
 
 	if (!hwall || !vwall)
 	{
-		error("Map error");
-		to_free(all);
+		printf("Map error");
+		//to_free(all);
 	}
 }
 
-void	map_flood(t_all *all, char **map, int x, int y)
+static void	map_flood(t_all *all, char **map, int x, int y)
 {
 	if (all->map_error)
 		return ;
@@ -88,5 +88,5 @@ void	check_map_errors(t_all *all)
 
 	temp_map = all->map;
 	check_walls(all);
-	//map_flood(all, temp_map, all->pos_x, all->pos_y);
+	map_flood(all, temp_map, all->pos_x, all->pos_y);
 }

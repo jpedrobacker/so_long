@@ -14,7 +14,7 @@ int	count_path(char *path[])
 
 int main (void)
 {
-	char	*path[] = {"qoeioqwie", "238102938109", NULL};
+	char	*path[] = {"qoeioqwie", "238102938109", "aaaaaaaaaaaaaaaaaaaa",NULL};
 
 	int i;
 	i = count_path(path);
