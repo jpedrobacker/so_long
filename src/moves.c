@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 10:46:19 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/01/30 11:21:06 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/01/31 11:44:37 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,7 @@ static int	update_move(t_all *all, int row, int col)
 	if (all->map[row][col] == 'E')
 	{
 		if (all->can_finish == 1)
-		{
-			all->current_level;
-			mlx_destroy_display(all->mlx_ptr);
-			init_game();
-		}
+			to_free(all);
 		return (0);
 	}
 	return (1);
@@ -121,5 +117,7 @@ int	compute_move(int key, t_all *all)
 		com = a_d_controls(key, all);
 	if (com)
 		adding_graphics(all);
+	if (key == 65307)
+		to_free(all);
 	return (1);
 }

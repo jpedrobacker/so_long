@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 18:52:28 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/01/30 10:34:15 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/01/31 11:46:05 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,26 @@ static void	check_walls(t_all *all)
 	}
 }
 
+int	check_elems(t_all *all)
+{
+	if (all->lplayer != 1)
+	{
+		//to_free(all);
+		printf("Not enough players\n");
+	}
+	if (all->lexit != 1)
+	{
+		//to_free(all);
+		printf("No exit found\n");
+	}
+	if (all->to_score < 1)
+	{
+		//to_free(all);
+		printf("No collectibles found\n");
+	}
+	return (1);
+}
+
 static void	map_flood(t_all *all, char **map, int x, int y)
 {
 	if (all->map_error)
@@ -87,6 +107,7 @@ void	check_map_errors(t_all *all)
 	char	**temp_map;
 
 	temp_map = all->map;
-	check_walls(all);
-	map_flood(all, temp_map, all->pos_x, all->pos_y);
+	//check_walls(all);
+	check_elems(all);
+	//map_flood(all, temp_map, all->pos_x, all->pos_y);
 }

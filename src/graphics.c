@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 06:42:25 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/01/23 17:59:41 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/01/31 11:38:01 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ static void	spawn_player(t_all *all, int row, int col)
 	mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->player, col * HEIGHT, row * WIDTH);
 	all->pos_x = col;
 	all->pos_y = row;
+	all->lplayer++;
 }
 
 void	adding_graphics(t_all *all)
@@ -61,6 +62,7 @@ void	adding_graphics(t_all *all)
 			if (all->map[row][col] == 'E')
 			{
 				mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->exit, col * HEIGHT, row * WIDTH);
+				all->lexit++;
 			}
 			if (all->map[row][col] == 'P')
 			{

@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 21:27:48 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/01/30 11:35:15 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/01/31 11:33:18 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <stdio.h>
 # include <fcntl.h>
 # include <unistd.h>
+# include <errno.h>
 
 
 # define MLX_ERROR		0
@@ -71,6 +72,7 @@ typedef struct s_all
 	int		row;
 	int		col;
 	int		lplayer;
+	int		lexit;
 	int		pos_x;
 	int		pos_y;
 	int		score;
@@ -88,12 +90,11 @@ typedef struct s_all
 	void	*menu;
 }	t_all;
 
-void	init_game();
-int		start(int key, t_all *all);
 int		read_map(t_all *all, char *arr);
 void	graphics_env(t_all *all);
 void	adding_graphics(t_all *all);
 int		compute_move(int key, t_all *all);
 void	check_map_errors(t_all *all);
+int		to_free(t_all *all);
 
 #endif

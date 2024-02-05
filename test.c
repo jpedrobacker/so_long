@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int	count_path(char *path[])
 {
@@ -14,10 +15,9 @@ int	count_path(char *path[])
 
 int main (void)
 {
-	char	*path[] = {"qoeioqwie", "238102938109", "aaaaaaaaaaaaaaaaaaaa",NULL};
+	char	*path;
 
-	int i;
-	i = count_path(path);
-	printf("%i", i);
+	path = (char *)malloc(100);
+	free(path);
 	return (0);
 }

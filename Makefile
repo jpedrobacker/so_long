@@ -7,7 +7,7 @@ MLX_LIB = $(MLXDIR)/libmlx_$(UNAME).a
 LIB = libft.a
 
 run:
-	cd src && $(CC) game.c so_long.c map.c graphics.c moves.c error.c $(LIB) $(MLX_FLAGS) && ./a.out
+	cd src && $(CC) so_long.c map.c graphics.c moves.c error.c free.c $(LIB) $(MLX_FLAGS) && ./a.out "../tests/map1.ber"
 .c.o:
 	$(CC) $(CFLAGS) -c -o $@ $< $(INCLUDES)
 
