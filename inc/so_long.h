@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 21:27:48 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/01/31 11:33:18 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/02/16 16:58:46 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 # define SO_LONG_H
 
 # include <mlx.h>
-# include "../libft/libft.h"
+# include "../libftprintf/libft/libft.h"
+# include "../libftprintf/ft_printf.h"
 # include <stdlib.h>
 # include <X11/keysym.h>
 # include <stdio.h>

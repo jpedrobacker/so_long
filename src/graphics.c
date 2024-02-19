@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 06:42:25 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/01/31 11:38:01 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/02/16 17:06:23 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,26 +52,18 @@ void	adding_graphics(t_all *all)
 		while (all->map[row][col])
 		{
 			if (all->map[row][col] == '1')
-			{
 				mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->wall, col * HEIGHT, row * WIDTH);
-			}
 			if (all->map[row][col] == 'C')
-			{
 				count_score(all, row, col);
-			}
 			if (all->map[row][col] == 'E')
 			{
 				mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->exit, col * HEIGHT, row * WIDTH);
 				all->lexit++;
 			}
 			if (all->map[row][col] == 'P')
-			{
 				spawn_player(all, row, col);
-			}
 			if (all->map[row][col] == '0')
-			{
 				mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->floor, col * HEIGHT, row * WIDTH);
-			}
 			col++;
 		}
 		row++;
