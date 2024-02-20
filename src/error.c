@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 18:52:28 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/02/16 16:33:00 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/02/20 17:33:16 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static void	check_walls(t_all *all)
 	}
 }
 
-static void	map_flood(t_all *all, char **map, int x, int y)
+/*static void	map_flood(t_all *all, char **map, int x, int y)
 {
 	if (all->map_error)
 		return ;
@@ -79,13 +79,13 @@ static void	map_flood(t_all *all, char **map, int x, int y)
 		map_flood(all, map, x, y);
 	if (map[y - 1][x] != '1')
 		map_flood(all, map, x, y);
-}
+}*/
 
 void	check_map_errors(t_all *all)
 {
-	char	**temp_map;
+	//char	**temp_map;
 
-	temp_map = all->map;
+	//temp_map = all->map;
 	check_walls(all);
 	//map_flood(all, temp_map, all->pos_x, all->pos_y);
 }

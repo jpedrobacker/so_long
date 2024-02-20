@@ -21,6 +21,7 @@ makelib:
 		make -C $(LIBFTDIR)
 		cp $(LIBFTDIR)/$(LIBFTNAME) .
 		mv $(LIBFTNAME) $(NAME)
+		make clean
 
 $(NAME): makelib $(OBJ)
 		ar -rcs $(NAME) $(OBJ)

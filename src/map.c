@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 16:18:32 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/01/27 11:46:02 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/02/20 17:30:55 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ static int	new_line(t_all *all, char *str)
 int	read_map(t_all *all, char *arr)
 {
 	char	*readmap;
-	int		i;
 
 	all->fd = open(arr, O_RDONLY);
 	if (all->fd < 0)
