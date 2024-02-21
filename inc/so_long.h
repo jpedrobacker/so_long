@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 21:27:48 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/02/20 17:16:03 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/02/21 14:22:27 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,45 +28,12 @@
 # define WIDTH			64
 # define HEIGHT			64
 # define SIDE_LEN		800
-
-typedef struct s_graphics
-{
-	void	*floor;
-	void	*wall;
-	void	*exit;
-}	t_graphics;
-
-typedef struct s_player
-{
-	int		pos_x;
-	int		pos_y;
-	int		score;
-	void	*player;
-	void	*coin;
-}	t_player;
-
-typedef struct s_layout
-{
-	char	**map;
-	int		row;
-	int		col;
-	int		exit;
-	int		coin;
-	int		player;
-	int		fd;
-}	t_layout;
-
-typedef struct s_data
-{
-	void	*mlx_ptr;
-	void	*win_ptr;
-}	t_data;
-
 typedef struct s_all
 {
 	void	*mlx_ptr;
 	void	*win_ptr;
 	char	**map;
+	char	**temp_map;
 	char	**path;
 	int		map_error;
 	int		row;
@@ -96,5 +63,6 @@ void	adding_graphics(t_all *all);
 int		compute_move(int key, t_all *all);
 void	check_map_errors(t_all *all);
 int		to_free(t_all *all);
+void	arr_free(t_all *all, char **arr);
 
 #endif

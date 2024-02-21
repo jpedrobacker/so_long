@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 10:46:19 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/01/31 11:44:37 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/02/21 11:37:34 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ static int	a_d_controls(int key, t_all *all)
 	{
 		all->player = mlx_xpm_file_to_image(all->mlx_ptr, "../sprites/outlaw_backwards.xpm", &i, &j);
 		col--;
-		if(all->map[row][col] == '1')
+		if (all->map[row][col] == '1')
 			return (0);
 		k = update_move(all, row, col);
 		if (!k)

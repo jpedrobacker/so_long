@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 21:38:37 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/02/20 17:38:41 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/02/21 15:21:26 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,21 +40,16 @@ static int	check_elems(t_all *all)
 int	main(int argc, char *argv[])
 {
 	t_all	all;
-
-	if (argc != 2)
-	{
-		ft_printf("type a map\n");
-		to_free(&all);
-		return (0);
-	}
+	(void) argc;
 	all.can_finish = 0;
 	ft_memset(&all, 0, sizeof(t_all));
 	read_map(&all, argv[1]);
-	check_map_errors(&all);
 	all.mlx_ptr = mlx_init();
-	all.win_ptr = mlx_new_window(all.mlx_ptr, all.col * HEIGHT, all.row * WIDTH, "Red Carrot Redemptiom");
+	all.win_ptr = mlx_new_window(all.mlx_ptr, all.col * HEIGHT, \
+	all.row * WIDTH, "Red Carrot Redemptiom");
 	graphics_env(&all);
 	adding_graphics(&all);
+	check_map_errors(&all);
 	check_elems(&all);
 	mlx_key_hook(all.win_ptr, compute_move, &all);
 	mlx_hook(all.win_ptr, 17, 0, (void *)exit, 0);

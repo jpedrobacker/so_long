@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 12:29:59 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/02/16 16:56:28 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/02/21 15:56:53 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	*read_file(int fd, char *buffer, char *extra)
 		if (read_file == -1)
 			return (NULL);
 		else if (read_file == 0)
-			break;
+			break ;
 		buffer[read_file] = '\0';
 		if (!extra)
 			extra = ft_strdup("");
@@ -39,7 +39,7 @@ char	*read_file(int fd, char *buffer, char *extra)
 		extra = ft_strjoin(temp, buffer);
 		temp = ft_free(temp);
 		if (ft_strchr(buffer, '\n'))
-			break;
+			break ;
 	}
 	return (extra);
 }
@@ -50,7 +50,7 @@ char	*extract_line(char *line)
 	char	*extra;
 
 	i = 0;
-	while(line[i] != '\0' && line[i] != '\n')
+	while (line[i] != '\0' && line[i] != '\n')
 		i++;
 	if (line[i] == '\0')
 		return (NULL);
