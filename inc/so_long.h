@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 21:27:48 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/02/21 14:22:27 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/02/25 18:18:42 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,6 @@
 # define SIDE_LEN		800
 typedef struct s_all
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
-	char	**map;
-	char	**temp_map;
-	char	**path;
 	int		map_error;
 	int		row;
 	int		col;
@@ -46,15 +41,15 @@ typedef struct s_all
 	int		to_score;
 	int		score_ok;
 	int		can_finish;
-	int		current_level;
 	int		fd;
-	int		start;
+	char	**map;
+	void	*mlx_ptr;
+	void	*win_ptr;
 	void	*player;
 	void	*coin;
 	void	*floor;
 	void	*wall;
 	void	*exit;
-	void	*menu;
 }	t_all;
 
 int		read_map(t_all *all, char *arr);

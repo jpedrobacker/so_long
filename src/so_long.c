@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 21:38:37 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/02/21 15:21:26 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/02/25 18:13:34 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ static int	check_elems(t_all *all)
 int	main(int argc, char *argv[])
 {
 	t_all	all;
-	(void) argc;
+	if (argc != 2)
+		return (0);
 	all.can_finish = 0;
 	ft_memset(&all, 0, sizeof(t_all));
 	read_map(&all, argv[1]);
