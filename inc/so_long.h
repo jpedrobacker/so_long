@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 21:27:48 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/02/25 18:18:42 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/02/26 11:45:06 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ typedef struct s_all
 	int		to_score;
 	int		score_ok;
 	int		can_finish;
+	int		finish;
 	int		fd;
 	char	**map;
 	void	*mlx_ptr;

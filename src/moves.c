@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 10:46:19 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/02/21 11:37:34 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/02/26 11:44:57 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ static int	update_move(t_all *all, int row, int col)
 		all->score++;
 		if (all->score == all->to_score)
 		{
-			all->can_finish = 1;
+			all->finish = 1;
 		}
 	}
 	if (all->map[row][col] == 'E')
 	{
-		if (all->can_finish == 1)
+		if (all->finish == 1)
 			to_free(all);
 		return (0);
 	}

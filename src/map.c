@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 16:18:32 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/02/21 15:42:00 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/02/26 13:06:18 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ static int	new_line(t_all *all, char *str)
 	i = 0;
 	all->row++;
 	temp = (char **)malloc(sizeof(char *) * (all->row + 1));
+	if (!temp)
+		return (0);
 	temp[all->row] = NULL;
 	while (i < all->row - 1)
 	{
