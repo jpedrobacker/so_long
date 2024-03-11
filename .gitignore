@@ -1,10 +1,4 @@
-*.o
-*.out
-*.swp
-*.so
-*.d
 *.a
+*.o
+*.swp
 minilibx-linux
-mlx
-src/so_long
-src/libftprintf.a

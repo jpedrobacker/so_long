@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 10:46:19 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/02/26 11:44:57 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/03/11 12:28:55 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,7 @@ static int	update_move(t_all *all, int row, int col)
 		all->pos_y = row;
 		all->score++;
 		if (all->score == all->to_score)
-		{
 			all->finish = 1;
-		}
 	}
 	if (all->map[row][col] == 'E')
 	{
@@ -110,7 +108,6 @@ int	compute_move(int key, t_all *all)
 {
 	int	com;
 
-	all->score = 0;
 	if (key == XK_w || key == XK_s)
 		com = w_s_controls(key, all);
 	if (key == XK_a || key == XK_d)

@@ -6,14 +6,14 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 21:27:48 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/02/26 11:45:06 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/03/11 13:37:17 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include <mlx.h>
+# include "../lib/minilibx-linux/mlx.h"
 # include "../lib/libftprintf/ft_printf.h"
 # include "../lib/libftprintf/libft/libft.h"
 # include <stdlib.h>
@@ -23,11 +23,9 @@
 # include <unistd.h>
 # include <errno.h>
 
-# define MLX_ERROR		0
-# define MALLOC_ERROR	1
 # define WIDTH			64
 # define HEIGHT			64
-# define SIDE_LEN		800
+
 typedef struct s_all
 {
 	int		map_error;
@@ -59,6 +57,8 @@ void	adding_graphics(t_all *all);
 int		compute_move(int key, t_all *all);
 void	check_map_errors(t_all *all);
 int		to_free(t_all *all);
-void	arr_free(t_all *all, char **arr);
+int		check_elems(t_all *all);
+void	check_walls(t_all *all, char **temp_map);
+void	count_elems(t_all *all, char **temp_map);
 
 #endif

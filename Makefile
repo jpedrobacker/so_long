@@ -1,27 +1,27 @@
 NAME = so_long
 INCLUDES = -I/usr/include -Imlx
 CC = cc
+SRC_DIR = src/
+FIND = $(shell find $(SRC_DIR))
+SRC = $(filter %.c, $(FIND))
 CFLAGS = -Wall -Werror -Wextra
 MLX_FLAGS = -lmlx -lXext -lX11
 MLXCLONE = git clone git@github.com:42Paris/minilibx-linux.git
 MLX_LIB = lib/minilibx-linux
-LIB = libftprintf.a
-MLX = libmlx.a
+LIB = src/libftprintf.a
+MLX = src/libmlx.a
 
 all: $(NAME)
 
 $(NAME):
-	cd src && $(CC) $(CFLAGS) so_long.c map.c graphics.c moves.c error.c free.c $(LIB) $(MLX_FLAGS) -o $(NAME)
+	$(CC) $(CFLAGS) $(SRC) $(LIB) $(MLX_FLAGS) -o $(NAME)
+	mv ./so_long src/
 
 play:
-	cd src && ./so_long "../maps/map0.ber"
+	cd src && ./so_long "../maps/map1.ber"
 
 check:
-	ifneq ($(MLX_LIB), )
-		echo "ok"
-	else
-		cd lib && git clone git@github.com:42Paris/minilibx-linux.git
-	endif
+	cd lib && git clone git@github.com:42Paris/minilibx-linux.git
 
 mlib:
 	make -C lib/libftprintf
@@ -33,6 +33,9 @@ mlib:
 clean:
 	rm -rf $(LIB) $(MLX)
 
-fclean:
+fclean: clean
+		make fclean -C lib/libftprintf
+		make clean -C lib/minilibx-linux
 
-re:
+re: fclean mlib all
+

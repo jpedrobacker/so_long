@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 06:42:25 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/02/21 11:53:09 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/03/11 12:28:24 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,17 +32,11 @@ void	graphics_env(t_all *all)
 static void	score_exit(t_all *all, int row, int col)
 {
 	if (all->map[row][col] == 'C')
-	{
 		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->coin, \
 		col * HEIGHT, row * WIDTH);
-		all->to_score++;
-	}
 	else if (all->map[row][col] == 'E')
-	{
 		mlx_put_image_to_window(all->mlx_ptr, all->win_ptr, all->exit, \
 		col * HEIGHT, row * WIDTH);
-		all->lexit++;
-	}
 }
 
 static void	spawn_player(t_all *all, int row, int col)
@@ -51,7 +45,6 @@ static void	spawn_player(t_all *all, int row, int col)
 	col * HEIGHT, row * WIDTH);
 	all->pos_x = col;
 	all->pos_y = row;
-	all->lplayer++;
 }
 
 static void	floor_wall(t_all *all, int row, int col)
@@ -70,8 +63,6 @@ void	adding_graphics(t_all *all)
 	int	col;
 
 	row = 0;
-	all->score = 0;
-	all->to_score = 0;
 	while (row < all->row)
 	{
 		col = 0;
