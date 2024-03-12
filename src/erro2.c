@@ -6,13 +6,13 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 11:47:49 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/03/11 13:35:16 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/03/12 15:32:16 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-int	check_elems(t_all *all)
+void	check_elems(t_all *all)
 {
 	int	x;
 
@@ -33,11 +33,19 @@ int	check_elems(t_all *all)
 		x++;
 	}
 	if (x > 0)
-		to_free(all);
-	return (1);
+		to_free_incomplete(all);
 }
 
-void	count_elems(t_all *all, char **temp_map)
+void	check_digits(t_all *all, char d)
+{
+	if (d == '1' || d == '0' || d == 'P' \
+	|| d == 'C' || d == 'E' || d == '\n' || d == '\0')
+		return ;
+	else
+		to_free_incomplete(all);
+}
+
+void	count_elems(t_all *all)
 {
 	int	row;
 	int	col;
@@ -47,13 +55,14 @@ void	count_elems(t_all *all, char **temp_map)
 	while (row < all->row)
 	{
 		col = 0;
-		while (temp_map[row][col])
+		while (all->map[row][col])
 		{
-			if (temp_map[row][col] == 'C')
+			check_digits(all, all->map[row][col]);
+			if (all->map[row][col] == 'C')
 				all->to_score++;
-			if (temp_map[row][col] == 'E')
+			if (all->map[row][col] == 'E')
 				all->lexit++;
-			if (temp_map[row][col] == 'P')
+			if (all->map[row][col] == 'P')
 			{
 				all->lplayer++;
 				all->pos_x = col;

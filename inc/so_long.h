@@ -6,14 +6,14 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 21:27:48 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/03/11 13:37:17 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/03/12 14:53:45 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "../lib/minilibx-linux/mlx.h"
+# include "../lib/mlx/mlx.h"
 # include "../lib/libftprintf/ft_printf.h"
 # include "../lib/libftprintf/libft/libft.h"
 # include <stdlib.h>
@@ -57,8 +57,9 @@ void	adding_graphics(t_all *all);
 int		compute_move(int key, t_all *all);
 void	check_map_errors(t_all *all);
 int		to_free(t_all *all);
-int		check_elems(t_all *all);
-void	check_walls(t_all *all, char **temp_map);
-void	count_elems(t_all *all, char **temp_map);
+int		to_free_incomplete(t_all *all);
+void	check_elems(t_all *all);
+void	check_walls(t_all *all);
+void	count_elems(t_all *all);
 
 #endif

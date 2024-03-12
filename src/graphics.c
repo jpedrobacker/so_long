@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 06:42:25 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/03/11 12:28:24 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/03/12 14:01:16 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,9 @@ void	adding_graphics(t_all *all)
 		{
 			if (all->map[row][col] == '1' || all->map[row][col] == '0')
 				floor_wall(all, row, col);
-			if (all->map[row][col] == 'C' || all->map[row][col] == 'E')
+			else if (all->map[row][col] == 'C' || all->map[row][col] == 'E')
 				score_exit(all, row, col);
-			if (all->map[row][col] == 'P')
+			else if (all->map[row][col] == 'P')
 				spawn_player(all, row, col);
 			col++;
 		}

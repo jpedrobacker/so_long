@@ -2,3 +2,5 @@
 *.o
 *.swp
 minilibx-linux
+mlx
+so_long
