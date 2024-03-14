@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 18:52:28 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/03/12 15:33:57 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/03/13 11:15:54 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int	check_hwall(t_all *all)
 	y = 0;
 	while (y < x)
 	{
-		if (!(all->map[0][x] == '1' && all->map[all->row - 1][y] == '1'))
+		if (!(all->map[0][y] == '1' && all->map[all->row - 1][y] == '1'))
 			return (0);
 		y++;
 	}

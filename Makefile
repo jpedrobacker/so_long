@@ -1,5 +1,4 @@
 NAME = so_long
-INCLUDES = -I/usr/include -Imlx
 CC = cc
 SRC_DIR = src/
 FIND = $(shell find $(SRC_DIR))
@@ -7,7 +6,7 @@ SRC = $(filter %.c, $(FIND))
 CFLAGS = -Wall -Werror -Wextra
 MLX_FLAGS = -lXext -lX11
 MLXCLONE = git clone git@github.com:42Paris/minilibx-linux.git
-MLX_LIB = lib/mlx
+MLXLIB = lib/mlx
 LIB = src/libftprintf.a
 MLX = src/libmlx.a
 
@@ -18,10 +17,10 @@ $(NAME):
 	mv ./so_long src/
 
 play:
-	cd src && ./so_long "../maps/test.ber"
+	cd src && ./so_long "../maps/map1.ber"
 
-check:
-	cd lib && git clone git@github.com:42Paris/minilibx-linux.git mlx
+clone:
+	cd lib && $(MLXCLONE) mlx
 
 mlib:
 	make -C lib/libftprintf
