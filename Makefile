@@ -19,7 +19,7 @@ $(NAME):
 play:
 	cd src && ./so_long "../maps/map1.ber"
 
-clone:
+mlx:
 	cd lib && $(MLXCLONE) mlx
 
 mlib:

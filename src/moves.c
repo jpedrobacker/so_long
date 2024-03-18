@@ -6,13 +6,13 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 10:46:19 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/03/12 14:57:46 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/03/18 14:17:59 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-static int	update_move(t_all *all, int row, int col)
+int	update_move(t_all *all, int row, int col)
 {
 	if (all->map[row][col] == '0')
 	{
@@ -42,29 +42,14 @@ static int	w_s_controls(int key, t_all *all)
 {
 	int	row;
 	int	col;
-	int	k;
 
 	col = all->pos_x;
 	row = all->pos_y;
 	if (key == XK_w)
-	{
-		row--;
-		if (all->map[row][col] == '1')
-			return (0);
-		k = update_move(all, row, col);
-		if (!k)
-			return (0);
-		all->map[row + 1][col] = '0';
-	}
+		w_key(all, col, row);
 	if (key == XK_s)
 	{
-		row++;
-		if (all->map[row][col] == '1')
-			return (0);
-		k = update_move(all, row, col);
-		if (!k)
-			return (0);
-		all->map[row - 1][col] = '0';
+		s_key(all, col, row);
 	}
 	return (1);
 }
@@ -73,33 +58,16 @@ static int	a_d_controls(int key, t_all *all)
 {
 	int	row;
 	int	col;
-	int	i;
-	int	j;
-	int	k;
 
 	col = all->pos_x;
 	row = all->pos_y;
 	if (key == XK_a)
 	{
-		all->player = mlx_xpm_file_to_image(all->mlx_ptr, "../sprites/outlaw_backwards.xpm", &i, &j);
-		col--;
-		if (all->map[row][col] == '1')
-			return (0);
-		k = update_move(all, row, col);
-		if (!k)
-			return (0);
-		all->map[row][col + 1] = '0';
+		a_key(all, col, row);
 	}
 	if (key == XK_d)
 	{
-		all->player = mlx_xpm_file_to_image(all->mlx_ptr, "../sprites/outlaw_foward.xpm", &i, &j);
-		col++;
-		if (all->map[row][col] == '1')
-			return (0);
-		k = update_move(all, row, col);
-		if (!k)
-			return (0);
-		all->map[row][col - 1] = '0';
+		d_key(all, col, row);
 	}
 	return (1);
 }

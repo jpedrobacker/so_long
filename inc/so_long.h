@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 21:27:48 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/03/12 14:53:45 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/03/18 14:16:45 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,19 @@ typedef struct s_all
 }	t_all;
 
 int		read_map(t_all *all, char *arr);
-void	graphics_env(t_all *all);
-void	adding_graphics(t_all *all);
 int		compute_move(int key, t_all *all);
-void	check_map_errors(t_all *all);
+int		w_key(t_all *all, int col, int row);
+int		s_key(t_all *all, int col, int row);
+int		a_key(t_all *all, int col, int row);
+int		d_key(t_all *all, int col, int row);
 int		to_free(t_all *all);
 int		to_free_incomplete(t_all *all);
+int		update_move(t_all *all, int row, int col);
+void	adding_graphics(t_all *all);
+void	check_map_errors(t_all *all);
+void	graphics_env(t_all *all);
+void	to_free_game(t_all *all, int freelib);
+void	to_free_game_map(t_all *all);
 void	check_elems(t_all *all);
 void	check_walls(t_all *all);
 void	count_elems(t_all *all);
