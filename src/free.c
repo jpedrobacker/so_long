@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 13:53:22 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/03/18 13:54:02 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/03/25 17:12:40 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	to_free(t_all *all)
 {
-	to_free_game(all, 1);
+	to_free_game(all);
 	exit(0);
 }
 

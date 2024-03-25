@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 21:27:48 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/03/18 14:16:45 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/03/25 17:12:57 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int		update_move(t_all *all, int row, int col);
 void	adding_graphics(t_all *all);
 void	check_map_errors(t_all *all);
 void	graphics_env(t_all *all);
-void	to_free_game(t_all *all, int freelib);
+void	to_free_game(t_all *all);
 void	to_free_game_map(t_all *all);
 void	check_elems(t_all *all);
 void	check_walls(t_all *all);

@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 13:57:22 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/03/18 14:19:02 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/03/25 16:23:01 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int	a_key(t_all *all, int col, int row)
 	int	j;
 	int	k;
 
+	mlx_destroy_image(all->mlx_ptr, all->player);
 	all->player = mlx_xpm_file_to_image(all->mlx_ptr, \
 	"../sprites/outlaw_backwards.xpm", &i, &j);
 	col--;
@@ -64,6 +65,7 @@ int	d_key(t_all *all, int col, int row)
 	int	j;
 	int	k;
 
+	mlx_destroy_image(all->mlx_ptr, all->player);
 	all->player = mlx_xpm_file_to_image(all->mlx_ptr, \
 	"../sprites/outlaw_foward.xpm", &i, &j);
 	col++;

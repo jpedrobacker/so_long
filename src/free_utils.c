@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 10:27:58 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/03/18 13:55:07 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/03/25 17:12:34 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,8 @@ void	to_free_game_map(t_all *all)
 	free(all->map);
 }
 
-void	to_free_game(t_all *all, int freelib)
+void	to_free_game(t_all *all)
 {
 	to_free_game_map(all);
-	if (freelib)
-		free_lib(all);
+	free_lib(all);
 }

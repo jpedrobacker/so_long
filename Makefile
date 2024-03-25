@@ -19,6 +19,9 @@ $(NAME):
 play:
 	cd src && ./so_long "../maps/map1.ber"
 
+test:
+	cd src && valgrind --leak-check=full ./so_long "../maps/test.ber"
+
 mlx:
 	cd lib && $(MLXCLONE) mlx
 

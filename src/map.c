@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 16:18:32 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/03/12 15:34:22 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/03/25 16:47:14 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ int	read_map(t_all *all, char *arr)
 		if (!new_line(all, readmap))
 			break ;
 	}
+	if (!all->map)
+		to_free_incomplete(all);
 	close (all->fd);
 	all->col = map_cols(all->map[0]);
 	return (1);

@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 21:38:37 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/03/12 14:58:47 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/03/25 16:51:50 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ int	main(int argc, char *argv[])
 	graphics_env(&all);
 	adding_graphics(&all);
 	mlx_key_hook(all.win_ptr, compute_move, &all);
-	mlx_hook(all.win_ptr, 17, 0, (void *)exit, 0);
+	mlx_hook(all.win_ptr, 17, 0, to_free, &all);
 	mlx_loop(all.mlx_ptr);
 }
