@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 16:18:32 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/03/25 16:47:14 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/04/01 14:48:54 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,22 @@ static int	new_line(t_all *all, char *str)
 	return (1);
 }
 
+static int	is_ber(char *arr)
+{
+	if (ft_strnstr(arr, ".ber", ft_strlen(arr)) == 0)
+		return (0);
+	return (1);
+}
+
 int	read_map(t_all *all, char *arr)
 {
 	char	*readmap;
 
+	if (is_ber(arr) == 0)
+	{
+		ft_printf("Invalid archive type\n");
+		exit(0);
+	}
 	all->fd = open(arr, O_RDONLY);
 	if (all->fd < 0)
 		return (0);
@@ -63,7 +75,10 @@ int	read_map(t_all *all, char *arr)
 			break ;
 	}
 	if (!all->map)
+	{
+		ft_printf("Error!\n");
 		to_free_incomplete(all);
+	}
 	close (all->fd);
 	all->col = map_cols(all->map[0]);
 	return (1);

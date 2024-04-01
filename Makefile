@@ -17,10 +17,10 @@ $(NAME):
 	mv ./so_long src/
 
 play:
-	cd src && ./so_long "../maps/map1.ber"
+	cd src && ./so_long "../maps/map2.ber"
 
 test:
-	cd src && valgrind --leak-check=full ./so_long "../maps/test.ber"
+	cd src && valgrind --leak-check=full ./so_long "../maps/map2.ber"
 
 mlx:
 	cd lib && $(MLXCLONE) mlx
@@ -31,6 +31,12 @@ mlib:
 	mv lib/libftprintf/libftprintf.a src
 	make -C lib/mlx
 	mv lib/mlx/libmlx.a src
+
+checkpoint:
+	@git add -A
+	@git commit -m "checkpoint at $$(date '+%Y-%m-%dT%H:%M:%S%z')"
+	@git push
+	@echo Checkpoint created and pushed to remote
 
 clean:
 	rm -rf $(LIB) $(MLX)

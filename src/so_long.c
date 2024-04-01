@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 21:38:37 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/03/25 16:51:50 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/04/01 14:31:19 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	main(int argc, char *argv[])
 		return (0);
 	all.finish = 0;
 	all.score = 0;
+	all.moves = 1;
 	ft_memset(&all, 0, sizeof(t_all));
 	read_map(&all, argv[1]);
 	check_map_errors(&all);

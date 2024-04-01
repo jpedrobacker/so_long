@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 21:27:48 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/03/25 17:12:57 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/04/01 14:30:45 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 typedef struct s_all
 {
 	int		map_error;
+	int		moves;
 	int		row;
 	int		col;
 	int		lplayer;

@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 10:46:19 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/03/18 14:17:59 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/04/01 14:51:04 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int	update_move(t_all *all, int row, int col)
 {
+	ft_printf("moves: %d\n", ++all->moves);
 	if (all->map[row][col] == '0')
 	{
 		all->map[row][col] = 'P';
