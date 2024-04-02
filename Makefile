@@ -17,10 +17,10 @@ $(NAME):
 	mv ./so_long src/
 
 play:
-	cd src && ./so_long "../maps/map2.ber"
+	cd src && ./so_long "../maps/map1.ber"
 
 test:
-	cd src && valgrind --leak-check=full ./so_long "../maps/map2.ber"
+	cd src && valgrind -s --leak-check=full ./so_long "../maps/map1.ber"
 
 mlx:
 	cd lib && $(MLXCLONE) mlx

@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 21:38:37 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/04/01 14:31:19 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/04/02 10:28:16 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main(int argc, char *argv[])
 	check_map_errors(&all);
 	all.mlx_ptr = mlx_init();
 	all.win_ptr = mlx_new_window(all.mlx_ptr, all.col * HEIGHT, \
-	all.row * WIDTH, "Red Carrot Redemptiom");
+	all.row * WIDTH, "so_long");
 	graphics_env(&all);
 	adding_graphics(&all);
 	mlx_key_hook(all.win_ptr, compute_move, &all);

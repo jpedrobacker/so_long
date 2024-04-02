@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 11:47:49 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/03/12 15:32:16 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/04/02 13:26:11 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,17 @@ void	check_elems(t_all *all)
 	x = 0;
 	if (all->lplayer != 1)
 	{
-		ft_printf("No players\n");
+		ft_printf("Error!\nInvalid number of Players!\n");
 		x++;
 	}
 	if (all->lexit != 1)
 	{
-		ft_printf("No exit found\n");
+		ft_printf("Error!\nInvalid number of Exits!\n");
 		x++;
 	}
 	if (all->to_score < 1)
 	{
-		ft_printf("No collectibles found\n");
+		ft_printf("Error!\nInvalid number of collectibles!\n");
 		x++;
 	}
 	if (x > 0)
@@ -42,7 +42,10 @@ void	check_digits(t_all *all, char d)
 	|| d == 'C' || d == 'E' || d == '\n' || d == '\0')
 		return ;
 	else
+	{
+		ft_printf("Error!\nInvalid Digit!\n");
 		to_free_incomplete(all);
+	}
 }
 
 void	count_elems(t_all *all)

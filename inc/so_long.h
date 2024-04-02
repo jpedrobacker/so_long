@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 21:27:48 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/04/01 14:30:45 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/04/02 11:43:11 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ int		d_key(t_all *all, int col, int row);
 int		to_free(t_all *all);
 int		to_free_incomplete(t_all *all);
 int		update_move(t_all *all, int row, int col);
+int		is_ok(t_all *all);
 void	adding_graphics(t_all *all);
 void	check_map_errors(t_all *all);
 void	graphics_env(t_all *all);

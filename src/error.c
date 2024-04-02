@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 18:52:28 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/03/13 11:15:54 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/04/02 11:52:19 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,19 @@ void	check_walls(t_all *all)
 {
 	int	hwall;
 	int	vwall;
+	int	rec;
 
+	rec = is_ok(all);
+	if (!rec)
+	{
+		ft_printf("Error!\nInvalid Map!\n");
+		to_free_incomplete(all);
+	}
 	hwall = check_hwall(all);
 	vwall = check_vwall(all);
 	if (!hwall || !vwall)
 	{
-		ft_printf("Map error!\n");
+		ft_printf("Error!\nInvalid Map!\n");
 		to_free_incomplete(all);
 	}
 }
@@ -104,7 +111,7 @@ void	check_map_errors(t_all *all)
 	free(temp_map);
 	if (all->can_finish == 0 || all->score_ok < all->to_score)
 	{
-		ft_printf("No path available!\n");
+		ft_printf("Error!\nNo path available!\n");
 		to_free_incomplete(all);
 	}
 }

@@ -6,23 +6,33 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 10:46:19 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/04/01 14:51:04 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/04/02 10:49:59 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
+static void	check_finish(t_all *all)
+{
+	if (all->finish == 1)
+	{
+		ft_printf("moves: %d\n", ++all->moves);
+		to_free(all);
+	}
+}
+
 int	update_move(t_all *all, int row, int col)
 {
-	ft_printf("moves: %d\n", ++all->moves);
 	if (all->map[row][col] == '0')
 	{
+		ft_printf("moves: %d\n", ++all->moves);
 		all->map[row][col] = 'P';
 		all->pos_x = col;
 		all->pos_y = row;
 	}
 	if (all->map[row][col] == 'C')
 	{
+		ft_printf("moves: %d\n", ++all->moves);
 		all->map[row][col] = 'P';
 		all->pos_x = col;
 		all->pos_y = row;
@@ -32,8 +42,7 @@ int	update_move(t_all *all, int row, int col)
 	}
 	if (all->map[row][col] == 'E')
 	{
-		if (all->finish == 1)
-			to_free(all);
+		check_finish(all);
 		return (0);
 	}
 	return (1);
